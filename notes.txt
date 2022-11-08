@@ -1,0 +1,33 @@
+- Layered Architecture
+	- Data Access Layer
+	- Controller
+	- View
+
+- Separation of Concerns
+
+- POST requests tend to return
+	- status 201
+	- the created object
+
+- Dates in JSON can only be transmitted as strings
+- we can use specialized libraries, such as moment, to deal with dates
+
+- To check if a date is valid (after converting to new Date()):
+	1. if(date.toString() === 'Invalid Date')
+	2. if(isNaN(date))
+
+Testing with JEST
+
+Testing involves 4 components:
+- Test runner
+- Test fixtures (environments)
+- Assertions
+- Mocking
+
+- there are 2 ways to organize our tests
+	- put tests in a __tests__ folder at the root of the project
+	- put tests alongside the project's modules, at *.spec.js or *.test.js files RECOMMENDED
+
+- Supertest library allows us to make requests against our Node HTTP servers and it also provides convenient assertions on top of what jest already provides to us (these assertions are specific to HTTP requests and responses)
+
+supertest is the tool used to make requests against our API
