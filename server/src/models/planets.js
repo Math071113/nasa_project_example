@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const { parse } = require('csv-parse')
 const fs = require('fs')
+const path = require('path')
 
 const planetSchema = new mongoose.Schema({
     keplerName: {
@@ -20,7 +21,7 @@ const isHabitablePlanet = planet => {
 
 function loadPlanetsData(){
     return new Promise((resolve, reject) => {
-        fs.createReadStream('/home/matheus/Documentos/home/matheus-nexus1/Documents/Estudos/NodeJS_Developer/nasa_project/server/data/kepler_data.csv')
+        fs.createReadStream(path.join(__dirname, '..', '..', 'data', 'kepler_data.csv'))
         // .pipe() links a readable stream (created by fs.createReadStream) to a writable stream (parse())
         .pipe(parse({
             comment: '#',
