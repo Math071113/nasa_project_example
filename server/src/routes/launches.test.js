@@ -1,12 +1,15 @@
 const request = require('supertest')
 // request expects a Node http server as an argument
 const app = require('../app')
+const { loadPlanetsData } = require('../models/planets')
 const { mongoConnect, mongoDisconnect } = require('../utils/mongo')
 
 describe('Launches API', () => {
 
     beforeAll(async () => {
         await mongoConnect()
+        await loadPlanetsData()
+
     })
 
     afterAll(async () => {
